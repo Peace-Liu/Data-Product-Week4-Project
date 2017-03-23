@@ -1,0 +1,77 @@
+Developing Data Product Week4 Project - ShinyApp Pitch Preseatation
+========================================================
+author: Peace Liu
+date: 3/21/2017
+autosize: true
+
+Purpose of Project
+========================================================
+
+**Shiny App**
+
+- Use **Shiny** to build data product application and deploy it on Rstudio's servers 
+- Shiny Application should include some form of input (widget: textbox, checkbox, ...)
+- Some operation on the ui input in sever.R
+- Some reactive output displayed as a result of server calculations
+
+***
+
+**RPresenter**
+
+- use Slidify or **Rstudio Presenter** to prepare a reproducible pitch presentation for application
+- It must be 5 pages
+- Being hosted on github or Rpubs
+- contained some embedded R code 
+
+Shiny Application
+========================================================
+
+A simple application called **Predict Child height from Parent** has been developed  and deployed at  <https://peace-liu.shinyapps.io/DataProductWK4/>.
+
+The appication allows the user to explore the followings:
+
+- Use slider to choose parent height in a range of 55-75 
+- Select one or two models for predicting child height
+- Visually view the linear plot and prediction result
+
+Source code for Shiny Application is available at <https://github.com/Peace-Liu/Data-Product-Week4-Project>
+
+The Data
+========================================================
+
+The famous **Galton** dataset which is the heigths of parents and children recorded in inches is used to explore the relationship of parent and child height. The dataset has 928 obs and 2 variables (**child/parent**).
+
+
+```r
+library(datasets)
+dim(galton)
+summary(galton)
+```
+
+For some reason, with above code the results do not show for **galton** dataset but works for other datasets. I manually listed summary:
+
+***
+  
+**Child**
+
+- Min: 61.70; Max: 73.70
+- Mean: 68.09; Median: 68.20
+- 1st Qt: 66.20; 3rd Qt: 70.20
+
+**Parent**
+
+- Min: 64.00; Max: 73.00
+- Mean: 68.31; Median: 68.50
+- 1st Qt: 67.50; 3rd Qt: 69.50
+ 
+
+Scatter Plot - Child vs Parent
+========================================================
+
+
+```r
+plot(galton$parent, galton$child, xlab="Parent height (inch)", ylab="Child height (inch)", bty="n", pch=16, xlim=c(64,74), ylim=c(60, 74))
+```
+The Plot doesn't show either, so embed plot image as below.
+
+![child vs parent scatter plot](Child_Parent_plot.png)
